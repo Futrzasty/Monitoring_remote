@@ -1,0 +1,5 @@
+id	hostname     ip	             order	type	state	value	value_last   value2	value2_last	last_check	        last_change	      probe_cmd	              disabled
+2	NULL	     192.168.0.1     NULL	ping	0	0.364	0.282	     0.000	0.000	        2016-02-16 23:22:05	2016-01-01 18:16:06   NULL	              0
+4	NULL	     0.0.0.1	     NULL	www	0	0.000	0.000	     NULL	NULL	        2016-02-16 23:22:06	2016-01-01 18:16:06   bilety.mhk.pl|Zalecamy  0
+5	poczta	     192.168.0.11    NULL	smtp	0	0.000	0.000	     NULL	NULL	        2016-02-16 23:22:06	2015-11-25 09:51:26   NULL	              0
+7	NULL	     192.168.0.10    NULL	ssh	0	0.005	0.005	     NULL	NULL	        2016-02-16 23:22:06	2015-11-27 12:36:06   2211	              NULL
