@@ -25,7 +25,9 @@
                 list ($state, $value, $value2) = $probe;
                 if ($state != $state_old) $server->query("UPDATE hosts SET last_change= CURRENT_TIMESTAMP WHERE id = $id");
                 $server->query("UPDATE hosts SET `value_last` = `value`, `value` = $value, `value2_last` = `value2`, `value2` = $value2, `state` = $state, `last_check` = CURRENT_TIMESTAMP WHERE id = $id");
-                rrd_update($webserver_path."remote/rrd_data/".$row["rrd_file"], array("N:$value"));
+                if ($row["rrd_file"]) {
+                    rrd_update($webserver_path . "remote/rrd_data/" . $row["rrd_file"], array("N:$value"));
+                }
                 break;
             case "www":
                 $comm = explode("|", $row["probe_cmd"]);
