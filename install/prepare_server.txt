@@ -1,0 +1,25 @@
+# Zmiana nazwy hosta
+vim /etc/hosts
+vim /etc/hostname
+
+# Instalacja podstawowego oprogramowania
+aptitude install htop mc apache2 php5 mysql-server phpmyadmin postfix
+
+# Podstawowa konfiguracja systemu i konta
+vim /etc/vim/vimrc
+vim .bashrc
+
+# Instalacja i konfiguracja softu pod MONITORING
+aptitude install php5-rrd nagios-plugins git rrdtool
+php5enmod rrd
+
+git clone https://github.com/Futrzasty/Monitoring_remote.git remote
+
+chmod +x create_rrd.sh
+./create_rrd.sh
+
+cp config.php.example config.php
+vim config.php
+
+vim /etc/crontab
+*/2 *   * * *   root    /usr/bin/php /var/www/html/remote/cron_worker_remote.php > /dev/null 2>&1
