@@ -23,8 +23,9 @@
             case "ping":
                 $probe = check_ping($row["ip"], 200, 50, 500, 70);
                 list ($state, $value, $value2) = $probe;
-               if ($state != $state_old) $server->query("UPDATE hosts SET last_change= CURRENT_TIMESTAMP WHERE id = $id");
+                if ($state != $state_old) $server->query("UPDATE hosts SET last_change= CURRENT_TIMESTAMP WHERE id = $id");
                 $server->query("UPDATE hosts SET `value_last` = `value`, `value` = $value, `value2_last` = `value2`, `value2` = $value2, `state` = $state, `last_check` = CURRENT_TIMESTAMP WHERE id = $id");
+                rrd_update($webserver_path."remote/rrd_data/".$row["rrd_file"], array("N:$value"));
                 break;
             case "www":
                 $comm = explode("|", $row["probe_cmd"]);
@@ -39,7 +40,8 @@
                 break;
             case "ssh":
                 $probe = check_ssh($row["ip"], $row["probe_cmd"]<>NULL?$row["probe_cmd"]:"22");
-                list ($state, $value) = $probe;if ($state != $state_old) $server->query("UPDATE hosts SET last_change= CURRENT_TIMESTAMP WHERE id = $id");
+                list ($state, $value) = $probe;
+                if ($state != $state_old) $server->query("UPDATE hosts SET last_change= CURRENT_TIMESTAMP WHERE id = $id");
                 $server->query("UPDATE hosts SET `value_last` = `value`, `value` = $value, `state` = $state, `last_check` = CURRENT_TIMESTAMP WHERE id = $id");
                 break;
         }
