@@ -23,3 +23,8 @@ vim config.php
 
 vim /etc/crontab
 */2 *   * * *   root    /usr/bin/php /var/www/html/remote/cron_worker_remote.php > /dev/null 2>&1
+
+
+#PRZY KONFLIKCIE REPO
+git fetch --all
+git reset --hard origin/master
