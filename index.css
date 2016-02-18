@@ -5,6 +5,5 @@ body {
 }
 
 img {
-    border-color: black;
-    border-width: 3px;
+    margin: 3px;
 }
