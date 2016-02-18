@@ -33,9 +33,9 @@
         } else {
             $rrd_desc = 'Parametr';
         }
-        echo $row["hostname"].'<br />';
+        echo '<b>'.$row["hostname"].'</b><br />';
         echo "<img src='rrd_graph.php?$rrd_file;$rrd_parm;$rrd_desc;now-24h' />";
         echo "<img src='rrd_graph.php?$rrd_file;$rrd_parm;$rrd_desc;now-30d' /><br />";
     }
-
-    echo "<img src='rrd_graph.php?extime.rrd;extime;Czas wykonywania (s);now-30d' /><br />";
+    echo '<b>Czas wykonywania skryptu testującego</b><br />';
+    echo "<img src='rrd_graph.php?extime.rrd;extime;Czas wykonywania (s);now-7d' /><br />";
