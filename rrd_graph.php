@@ -1,13 +1,31 @@
 <?php
 	include_once ("functions.php");
 
-	# Wykres Execution time
+	# Lista paramertów wywołania (PLIK RRD, PARAMETR RRD, OPIS, START, WIDTH, HEIGHT)
 	$fid = uniqid('rrd_', true);
 	$file = "/tmp/$fid";
 
-	$opt_default = array( "--end", "now", "--start=end-4h", "--width=1000", "--height=200", "--full-size-mode", "--border=0", "--color=BACK#444444", "--color=CANVAS#444444", "--color=FONT#cccccc", "--color=ARROW#222222",
-					"DEF:extime=$webserver_path/remote/rrd_data/extime.rrd:extime:AVERAGE",
-					"LINE1:extime#ff0000:Execution Time (s) ",
+	$argv = explode(";", $_SERVER["QUERY_STRING"]);
+	$argc = count($argv);
+	$host = $argv[0];
+	$param= $argv[1];
+
+	$rrd_file = 'extime.rrd';			// 0
+	$rrd_para = 'extime';				// 1
+	$rrd_desc = 'Execution Time (s) ';	// 2
+	$rrd_start= 'end-4h';				// 3
+	$rrd_width= '1000';					// 4
+	$rrd_heigh= '200';					// 5
+
+	if (!isset($argv[0]) or !isset($argv[1])) die ("Brak wymaganych parametrów");
+	if (isset($argv[2])) $rrd_desc = $argv[2];
+	if (isset($argv[3])) $rrd_start = $argv[3];
+	if (isset($argv[4])) $rrd_width = $argv[4];
+	if (isset($argv[5])) $rrd_heigh = $argv[5];
+
+	$opt_default = array( "--end", "now", "--start=$rrd_start", "--width=$rrd_width", "--height=$rrd_heigh", "--full-size-mode", "--border=0", "--color=BACK#444444", "--color=CANVAS#444444", "--color=FONT#cccccc", "--color=ARROW#222222",
+					"DEF:param=$webserver_path/remote/rrd_data/$rrd_file:$rrd_para:AVERAGE",
+					"LINE1:param#ff0000:$rrd_desc",
 	);
 
     $opcja = $opt_default;
