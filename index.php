@@ -39,3 +39,7 @@
     }
     echo '<b>Czas wykonywania skryptu testującego</b><br />';
     echo "<img src='rrd_graph.php?extime.rrd;extime;Czas wykonywania (s);now-7d' /><br />";
+?>
+
+</body>
+</html>

@@ -3,11 +3,12 @@ vim /etc/hosts
 vim /etc/hostname
 
 # Instalacja podstawowego oprogramowania
-aptitude install htop mc apache2 php5 mysql-server phpmyadmin postfix
+aptitude install vim htop mc apache2 php5 mysql-server phpmyadmin postfix nagios-nrpe-server
 
 # Podstawowa konfiguracja systemu i konta
 vim /etc/vim/vimrc
 vim .bashrc
+vim /etc/nagios/nrpe.cfg
 
 # Instalacja i konfiguracja softu pod MONITORING
 aptitude install php5-rrd nagios-plugins git rrdtool
