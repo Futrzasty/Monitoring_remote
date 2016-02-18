@@ -18,7 +18,7 @@
 	$rrd_heigh= '200';					// 5
 
 	if (!isset($argv[0]) or !isset($argv[1])) die ("Brak wymaganych parametrów");
-	if (isset($argv[2])) $rrd_desc = $argv[2];
+	if (isset($argv[2])) $rrd_desc = urldecode($argv[2]);
 	if (isset($argv[3])) $rrd_start = $argv[3];
 	if (isset($argv[4])) $rrd_width = $argv[4];
 	if (isset($argv[5])) $rrd_heigh = $argv[5];
