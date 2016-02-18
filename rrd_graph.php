@@ -17,7 +17,13 @@
 	$rrd_width= '1000';					// 4
 	$rrd_heigh= '200';					// 5
 
-	if (!isset($argv[0]) or !isset($argv[1])) die ("Brak wymaganych parametrów");
+	if (!isset($argv[0]) or !isset($argv[1])) {
+		die ("Brak wymaganych parametrów");
+	}
+	else {
+		$rrd_file = $argv[0];
+		$rrd_para = $argv[1];
+	}
 	if (isset($argv[2])) $rrd_desc = urldecode($argv[2]);
 	if (isset($argv[3])) $rrd_start = $argv[3];
 	if (isset($argv[4])) $rrd_width = $argv[4];
