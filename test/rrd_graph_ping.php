@@ -1,5 +1,5 @@
 <?php
-    include_once ("functions.php");
+    include_once("../functions.php");
 
     # Wykres PING HARDCODED
     $fid = uniqid('rrd_', true);
