@@ -14,7 +14,7 @@
 	$rrd_para = 'extime';				// 1
 	$rrd_desc = 'Execution Time (s) ';	// 2
 	$rrd_start= 'end-4h';				// 3
-	$rrd_width= '1000';					// 4
+	$rrd_width= '900';					// 4
 	$rrd_heigh= '200';					// 5
 
 	if (!isset($argv[0]) or !isset($argv[1])) {

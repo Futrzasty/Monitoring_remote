@@ -33,7 +33,8 @@
         } else {
             $rrd_desc = 'Parametr';
         }
-        echo "<img src='rrd_graph.php?$rrd_file;$rrd_parm;$rrd_desc;now-24h' /><br />";
+        echo $row["hostname"].'<br />';
+        echo "<img src='rrd_graph.php?$rrd_file;$rrd_parm;$rrd_desc;now-24h' />";
         echo "<img src='rrd_graph.php?$rrd_file;$rrd_parm;$rrd_desc;now-30d' /><br />";
     }
 
