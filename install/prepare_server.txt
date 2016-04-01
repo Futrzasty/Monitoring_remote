@@ -10,6 +10,8 @@ vim /etc/vim/vimrc
 vim .bashrc
 vim /etc/nagios/nrpe.cfg
 
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
 # Instalacja i konfiguracja softu pod MONITORING
 aptitude install php5-rrd nagios-plugins git rrdtool
 php5enmod rrd
