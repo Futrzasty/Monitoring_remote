@@ -13,6 +13,8 @@ dpkg -i zabbix-release_3.0-1+jessie_all.deb
 apt-get update
 apt-get install zabbix-agent
 
+vim /etc/zabbix/zabbix_agnet.conf
+
 # Podstawowa konfiguracja systemu i konta
 vim /etc/vim/vimrc
 vim .bashrc
