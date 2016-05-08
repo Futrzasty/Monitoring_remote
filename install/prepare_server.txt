@@ -3,7 +3,15 @@ vim /etc/hosts
 vim /etc/hostname
 
 # Instalacja podstawowego oprogramowania
-aptitude install vim htop mc apache2 php5 mysql-server phpmyadmin postfix nagios-nrpe-server
+aptitude install ~pstandard ~pimportant ~prequired
+aptitude install vim htop mc bash-completion postfix nagios-nrpe-server
+aptitude install apache2 php5 mysql-server phpmyadmin
+
+# Instalacja agenta Zabbix
+wget http://repo.zabbix.com/zabbix/3.0/debian/pool/main/z/zabbix-release/zabbix-release_3.0-1+jessie_all.deb
+dpkg -i zabbix-release_3.0-1+jessie_all.deb
+apt-get update
+apt-get install zabbix-agent
 
 # Podstawowa konfiguracja systemu i konta
 vim /etc/vim/vimrc
