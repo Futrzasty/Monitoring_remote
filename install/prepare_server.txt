@@ -5,6 +5,7 @@ vim /etc/hostname
 # Instalacja podstawowego oprogramowania
 aptitude install ~pstandard ~pimportant ~prequired
 aptitude install vim htop mc bash-completion postfix nagios-nrpe-server
+aptitude install ntp
 aptitude install apache2 php5 mysql-server phpmyadmin
 
 # Instalacja agenta Zabbix
